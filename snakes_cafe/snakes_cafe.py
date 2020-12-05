@@ -35,17 +35,20 @@ x.append(order)
 
 
 def ordering(order, orderCount):
-    while order:
-        if order != 'quit':
+    while order != 'quit':
+        if order in x:
+            x.append(order)
+            orderCount+=1
             print(
-                '\n', '**', f'{orderCount+1} order of {order} have been added to your meal', '**')
+                    '\n', '**', f'{orderCount} order of {order} have been added to your meal', '**')
+            order = input(' \n > ')
+           
+        else:
+            orderCount=1
+            print(
+                '\n', '**', f'{orderCount} order of {order} have been added to your meal', '**')
             order = input(' \n > ')
             x.append(order)
-            orderCount += 1
-
-        else:
-            break
-
 
 if __name__ == "__main__":
     ordering(order, orderCount)
